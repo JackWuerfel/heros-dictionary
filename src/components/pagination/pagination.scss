@@ -1,0 +1,17 @@
+.pagination {
+    display: flex;
+    border: 1px solid #fff;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .pagination button {
+    padding: 10px;
+  }
+  
+  .active {
+    background: black;
+    color: #fff;
+    border: 1px solid #fff;
+  }
