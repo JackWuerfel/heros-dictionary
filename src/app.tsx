@@ -7,9 +7,9 @@ import { Grid, List, Pagination } from "./components";
 import classNames from "classnames";
 
 const App = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState<any>(0);
   const [data, setData] = useState([]);
-  const [tab, setTab] = useState(localStorage.getItem("tab"));
+  const [tab, setTab] = useState(localStorage.getItem("tab") || 'list');
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [herosPerPage] = useState(12);
@@ -23,6 +23,12 @@ const App = () => {
   ];
 
   useEffect(() => {
+    const page = localStorage.getItem("page");
+
+    if (page) {
+      setPage(parseInt(page));
+    }
+
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -41,9 +47,10 @@ const App = () => {
     fetchData();
   }, []);
 
-  const handlePage = (page: number) => {
+  const handlePage = (page: any) => {
     return (event: React.MouseEvent) => {
       event.preventDefault();
+      localStorage.setItem("page", page);
       setPage(page);
     };
   };
@@ -129,7 +136,7 @@ const App = () => {
                       </>
                     );
                   default:
-                    return null;
+                    return <></>;
                 }
               })()}
             </div>

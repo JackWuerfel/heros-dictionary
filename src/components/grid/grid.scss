@@ -5,6 +5,7 @@
   justify-content: space-between;
   gap: 80px;
   flex-wrap: wrap;
+  margin: 48px auto;
   @media screen and (max-width: 690px) {
     flex-direction: column;
   }
