@@ -3,12 +3,18 @@
   justify-content: space-between;
   margin-top: 25px;
   padding-bottom: 120px;
+  @media screen and (max-width: 690px) {
+    flex-wrap: wrap;
+  }
 }
 
 .pagination-button {
   border-right: 0px;
   width: 25%;
   min-width: auto;
+  @media screen and (max-width: 690px) {
+    border-right: 2px solid #fff;
+  }
 }
 
 .pagination-button--all {

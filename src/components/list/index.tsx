@@ -11,7 +11,7 @@ const List = ({ heros, loading }: any) => {
     <>
       {heros.map((data: any, index: any) => (
         <div className="list" key={index + uuidv4()}>
-          <div className="list__column">
+          <div className="list__column--small">
             <p>{data?.id}</p>
           </div>
           <div className="list__column">
