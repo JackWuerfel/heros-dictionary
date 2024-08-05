@@ -1,6 +1,6 @@
 {
   "name": "@JackWuerfel/heros-dictionary",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The Super Hero's Almanac is a regularly published listing of a set of current information about all things super and hero.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
