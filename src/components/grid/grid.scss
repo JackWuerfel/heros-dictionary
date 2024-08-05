@@ -1,0 +1,11 @@
+.grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: wrap;
+  @media screen and (max-width: 690px) {
+    flex-direction: column;
+  }
+}

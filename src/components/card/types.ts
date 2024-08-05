@@ -1,7 +1,7 @@
 export interface CardProps {
   alignmentVertical?: string
   alignmentHorizontal?: string
-  children?: any
+  data?: any
   direction?: string
   marginTop?: string
   marginBottom?: string

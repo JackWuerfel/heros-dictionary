@@ -3,21 +3,24 @@
 //INTERNAL IMPORTS
 import { useEffect, useState } from "react";
 import "./app.scss";
-import { List, Pagination } from "./components";
+import { Grid, List, Pagination } from "./components";
+import classNames from "classnames";
 
 const App = () => {
   const [page, setPage] = useState(0);
   const [data, setData] = useState([]);
+  const [tab, setTab] = useState(localStorage.getItem("tab"));
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [herosPerPage] = useState(10);
+  const [herosPerPage] = useState(12);
+  const indexOfLastHero = currentPage * herosPerPage;
+  const indexOfFirstHero = indexOfLastHero - herosPerPage;
+  const currentHeros = data.slice(indexOfFirstHero, indexOfLastHero);
 
-  const handlePage = (page: number) => {
-    return (event: React.MouseEvent) => {
-      event.preventDefault();
-      setPage(page);
-    };
-  };
+  const tabs = [
+    { id: "1szxa12", title: "List", value: "list" },
+    { id: "21454ws", title: "Grid", value: "grid" },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,14 +39,25 @@ const App = () => {
       }
     };
     fetchData();
-  }, [currentPage, herosPerPage]);
+  }, []);
 
-  const indexOfLastHero = currentPage * herosPerPage;
-  const indexOfFirstHero = indexOfLastHero - herosPerPage;
-  const currentHeros = data.slice(indexOfFirstHero, indexOfLastHero);
+  const handlePage = (page: number) => {
+    return (event: React.MouseEvent) => {
+      event.preventDefault();
+      setPage(page);
+    };
+  };
 
   const handlePagination = (pageNumber: number) => {
     setCurrentPage(pageNumber);
+  };
+
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handleBack = () => {
+    setCurrentPage(currentPage - 1);
   };
 
   return (
@@ -70,16 +84,54 @@ const App = () => {
               <div className="bordered">
                 <h1 className="text-center">The Super Hero's Almanac</h1>
               </div>
-              <button>List</button>
-              <button>Grid</button>
-
-              <List heros={currentHeros} loading={loading} />
-              <Pagination
-                length={data.length}
-                herosPerPage={herosPerPage}
-                handlePagination={handlePagination}
-                currentPage={currentPage}
-              />
+              <div className="tabs">
+                {tabs.map((item, i) => (
+                  <button
+                    key={i + item.id}
+                    className={classNames(tab === item.value && "active")}
+                    onClick={() => {
+                      setTab(item.value);
+                      localStorage.setItem("tab", item.value);
+                    }}
+                  >
+                    {item.title}
+                  </button>
+                ))}
+              </div>
+              {(() => {
+                switch (tab) {
+                  case "list":
+                    return (
+                      <>
+                        <List heros={currentHeros} loading={loading} />
+                        <Pagination
+                          length={data.length}
+                          herosPerPage={herosPerPage}
+                          handleNext={handleNext}
+                          handleBack={handleBack}
+                          handlePagination={handlePagination}
+                          currentPage={currentPage}
+                        />
+                      </>
+                    );
+                  case "grid":
+                    return (
+                      <>
+                        <Grid heros={currentHeros} loading={loading} />
+                        <Pagination
+                          length={data.length}
+                          herosPerPage={herosPerPage}
+                          handleNext={handleNext}
+                          handleBack={handleBack}
+                          handlePagination={handlePagination}
+                          currentPage={currentPage}
+                        />
+                      </>
+                    );
+                  default:
+                    return null;
+                }
+              })()}
             </div>
           </div>
         </div>

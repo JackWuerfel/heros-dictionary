@@ -1,17 +1,32 @@
 .pagination {
-    display: flex;
-    border: 1px solid #fff;
-    justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 60px;
-  }
-  
-  .pagination button {
-    padding: 10px;
-  }
-  
-  .active {
-    background: black;
-    color: #fff;
-    border: 1px solid #fff;
-  }
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  padding-bottom: 120px;
+}
+
+.pagination-button {
+  border-right: 0px;
+  width: 25%;
+  min-width: auto;
+}
+
+.pagination-button--all {
+  width: 25%;
+  min-width: auto;
+}
+
+.pagination-button--all-close {
+  width: 100%;
+  min-width: auto;
+  cursor: pointer;
+}
+
+.next {
+  border-right: 2px solid #fff;
+}
+
+.active {
+  background: black;
+  color: #fff;
+}

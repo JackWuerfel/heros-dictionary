@@ -3,19 +3,39 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 80px;
   margin-bottom: 16px;
   padding-bottom: 16px;
   border-bottom: 2px solid;
   text-transform: capitalize;
   @media screen and (max-width: 690px) {
     flex-direction: column;
+    border: calc(1rem + 5px) solid transparent;
+    outline: 1px solid var(--sha-text);
+    outline-offset: -1rem;
+    background-size:
+      200% 1px,
+      1px 200%;
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    background:
+      linear-gradient(var(--sha-text) 0 0) top,
+      linear-gradient(var(--sha-text) 0 0) left,
+      linear-gradient(var(--sha-text) 0 0) bottom,
+      linear-gradient(var(--sha-text) 0 0) right,
+      none;
+    background-size:
+      200% 1px,
+      1px 200%;
+    background-origin: padding-box;
+    background-repeat: no-repeat;
   }
   .list__image {
     max-width: 60px;
     width: 100%;
   }
-  div {
-    width: 150px;
+  .list__column {
+    width: 33%;
   }
 }

@@ -26,100 +26,6 @@
   --sha-highlight: #a3a6a6;
   --sha-text: #e8e8e8;
   --sha-deco-gold: #b0903d;
-  --mtm-card-background: linear-gradient(243deg, #eeeeee 0%, #ffffff 60%);
-  --mtm-background-blue: linear-gradient(222.84deg, #070713 0%, #0f1023 59.95%);
-  --mtm-background-grey: linear-gradient(222.84deg, #1f1f1f 0%, #2c2c2c 60.45%);
-  --mtm-background-secondary: #f1f3f5;
-  --mtm-nav-background: #ffffff;
-  --mtm-modal-overlay: #0c111db3;
-  --mtm-modal-background: #ffffff;
-  --mtm-modal-font-color: #344054;
-  --mtm-modal-close-color: #98a2b3;
-  --mtm-primary: #0b8088;
-  --mtm-primary-dark: #0b8088;
-  --mtm-primary-hover: #17a5ad44;
-  --mtm-link: #0d0f1c;
-  --mtm-gray-4: #475467;
-  --mtm-grey-3: #a9a29d;
-  --mtm-font-color-primary: #0d0f1c;
-  --mtm-box-shadow-default: 0px;
-  --mtm-border-default-color: var(--mtm-grey-3);
-  --mtm-border-default: 1px solid var(--mtm-grey-3);
-  --mtm-border-default-sm: 0.35px solid var(--mtm-grey-3);
-  --mtm-border-primary: 1px solid #0d0f1c;
-  --mtm-box-shadow-1: 0px 4px 4px 0px #0000001a;
-  --mtm-box-shadow-glow-color: #193f5fe6;
-  --mtm-interior-page-padding: 100px 40px 100px 40px;
-  --mtm-interior-page-padding-two: 40px;
-  --mtm-border-set-control: none;
-  --mtm-control-current-background: #e8f6f7;
-  --mtm-control-current-icon-color: #4b5762;
-  --mtm-control-current-background-hover: #d4feff;
-  --mtm-font-color-danger: #f04438;
-  --mtm-pagination-background: #e8f6f7;
-  --mtm-pagination-border: 1px solid #0d0f1c;
-  --mtm-pagination-border-active: none;
-  --mtm-pagination-disabled: rgb(204, 204, 204);
-}
-
-[data-theme="blue"] {
-  --mtm-background: linear-gradient(222.84deg, #070713 0%, #0f1023 59.95%);
-  --mtm-nav-background: #101323;
-  --mtm-background-secondary: #0f1023;
-  --mtm-border-default-color: #4e5ba6;
-  --mtm-border-default: 1px solid #4e5ba6;
-  --mtm-font-color-primary: #e8f6f7;
-  --mtm-link: #e8f6f7;
-  --mtm-border-primary: 1px solid #e8f6f7;
-  --mtm-grey-3: #e8f6f7;
-  --mtm-gray-4: #e8f6f7;
-  --mtm-modal-overlay: #0c111ddb;
-  --mtm-modal-background: linear-gradient(
-    243.28deg,
-    #070713 0.1%,
-    #0f1023 60.04%
-  );
-  --mtm-modal-font-color: #0b8088;
-  --mtm-modal-close-color: #e8f6f7;
-  --mtm-border-set-control: 1px solid #4e5ba6;
-  --mtm-control-current-background: #3e4784;
-  --mtm-control-current-icon-color: #e8f6f7;
-  --mtm-control-current-background-hover: #333a6b;
-  --mtm-font-color-danger: #f04438;
-  --mtm-pagination-background: #0f1023;
-  --mtm-pagination-border: 1px solid #4e5ba6;
-  --mtm-pagination-border-active: 1px solid #4e5ba6;
-  --mtm-pagination-disabled: #070713;
-}
-[data-theme="grey"] {
-  --mtm-background: linear-gradient(222.84deg, #1f1f1f 0%, #2c2c2c 60.45%);
-  --mtm-card-background: linear-gradient(243deg, #1f1f1f 0%, #2c2c2c 60%);
-  --mtm-nav-background: #292929;
-  --mtm-background-secondary: #2c2c2c;
-  --mtm-border-default-color: #737373;
-  --mtm-border-default: 1px solid #737373;
-  --mtm-font-color-primary: #e8f6f7;
-  --mtm-link: #e8f6f7;
-  --mtm-border-primary: 1px solid #e8f6f7;
-  --mtm-grey-3: #e8f6f7;
-  --mtm-gray-4: #e8f6f7;
-  --mtm-modal-overlay: #171412db;
-  --mtm-modal-background: linear-gradient(
-    242.38deg,
-    #1f1f1f 0%,
-    #2c2c2c 62.12%
-  );
-  --mtm-modal-font-color: #0b8088;
-  --mtm-modal-close-color: #e8f6f7;
-  --mtm-border-set-control: 1px solid #737373;
-  --mtm-control-current-background: #57534e;
-  --mtm-control-current-icon-color: #e8f6f7;
-  --mtm-control-current-background-hover: #413d3a;
-  --mtm-font-color-danger: #f04438;
-  --mtm-pagination-background: #2c2c2c;
-  --mtm-pagination-border: 1px solid #737373;
-  --mtm-pagination-border-active: 1px solid #737373;
-  --mtm-pagination-disabled: #1f1f1f;
 }
 
 @font-face {
@@ -258,6 +164,22 @@ button {
 }
 
 /* ===============
+   Tabs 
+   =============== */
+.tabs {
+  margin: 24px auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  button {
+    margin: 0px;
+    &:first-of-type {
+      border-right: 0px;
+    }
+  }
+}
+
+/* ===============
    Utility 
    =============== */
 
@@ -337,9 +259,10 @@ button {
 }
 
 .content-inner {
-  max-width: 968px;
+  max-width: 1024px;
   width: calc(100% - 32px);
   margin: 0 auto;
+  min-height: 600px;
 }
 
 .bordered {
@@ -377,6 +300,10 @@ button {
   font-size: 0.95rem;
 }
 
-.text-center{
+.text-center {
   text-align: center;
+}
+
+.loading{
+  margin: 48px auto;
 }
