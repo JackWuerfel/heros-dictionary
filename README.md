@@ -1,6 +1,4 @@
-# Phoenix-Component-Library #
-
-A component library developed with React, Typescript, Vite.
+# Heros Almanac #
 
 ## Getting Started ##
 
@@ -46,5 +44,3 @@ To release a new version
 ## 👨‍💻 Authors ##
 
 👤 Jack Wuerfel
-👤 Trevor Wuerfel
-👤 Frank Scholl
